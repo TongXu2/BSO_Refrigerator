@@ -1,0 +1,21 @@
+function [ z ] = fitness( input )
+%   L8 两处  L14 一处
+    y_fo=zeros(720,1);
+ 
+   load('bso_cool.mat');
+    
+    for T=1:718
+        y_fo(T+2)=-input(1)*y2(T+1)-input(2)*y2(T)+input(3)*u(T+2)+input(4)*u(T+1);
+    end
+    
+    x=0;
+    
+    for i=3:720
+        x=x+(abs(y2(i)-y_fo(i)))^2;
+    end
+    
+    z=x/718;
+   
+end
+
+%y_fo
